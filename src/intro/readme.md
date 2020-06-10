@@ -8,6 +8,6 @@ uvicorn intro:app --reload
 ```
 
 - Swagger
-    - localhost:8000
+    - http://localhost:8000/docs
 
 
