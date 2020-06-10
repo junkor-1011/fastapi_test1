@@ -15,5 +15,6 @@ conda env create -f create_env_fastapi_slim.yml
 conda env export -n fastapi_slim | tee fastapi_slim_freeze.yml
 ```
 
+※`$HOME`の部分は実際には絶対パスだが、ここでは置き換えてある
 
 
