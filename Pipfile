@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+python-language-server = {extras = ["all"], version = "*"}
+tox = "*"
+ipdb = "*"
+pudb = "*"
+
+[packages]
+uvicorn = "*"
+fastapi = "*"
+sqlalchemy = "*"
+alembic = "*"
+databases = "*"
+jinja2 = "*"
+aiofile = "*"
+
+[requires]
+python_version = "3.8"
