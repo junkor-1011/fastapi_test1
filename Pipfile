@@ -18,6 +18,7 @@ alembic = "*"
 databases = "*"
 jinja2 = "*"
 aiofile = "*"
+aiofiles = "*"
 
 [requires]
 python_version = "3.8"
