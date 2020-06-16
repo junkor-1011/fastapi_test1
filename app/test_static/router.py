@@ -2,8 +2,12 @@
 APIRouter static test.
 """
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+
+
+templates = Jinja2Templates(directory="app/test_static/templates")
 
 
 def create_router():
@@ -24,3 +28,10 @@ router = create_router()
 async def hello():
     """hello(tmp)"""
     return {"message": "hello from APIRouter"}
+
+
+@router.get("/page")
+async def page(request: Request,):
+    """test page"""
+    return templates.TemplateResponse("index.html",
+                                      {"request": request})
