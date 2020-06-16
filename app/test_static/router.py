@@ -5,14 +5,22 @@ APIRouter static test.
 from fastapi import APIRouter
 from fastapi.staticfiles import StaticFiles
 
-router = APIRouter()
 
-router.mount("/dir",
-             StaticFiles(directory="app/test_static/dir", html=True),
-             name="static_test",)
+def create_router():
+    """create router"""
+    _router = APIRouter()
+
+    _router.mount("/dir",
+                  StaticFiles(directory="app/test_static/dir", html=True),
+                  name="static_test",)
+    return _router
 
 
-@router.get("/test_static/get")
+router = create_router()
+
+
+# @router.get("/test_static/get")
+@router.get("/get")
 async def hello():
     """hello(tmp)"""
     return {"message": "hello from APIRouter"}

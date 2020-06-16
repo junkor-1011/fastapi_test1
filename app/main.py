@@ -20,7 +20,7 @@ def create_app():
     )
     _app.include_router(
         router_static,
-        # prefix="/test_static",
+        prefix="/test_static",
         tags=["test_static"],
     )
 
