@@ -17,8 +17,11 @@ sqlalchemy = "*"
 alembic = "*"
 databases = "*"
 jinja2 = "*"
-aiofile = "*"
 aiofiles = "*"
 
 [requires]
 python_version = "3.8"
+
+[scripts]
+start = "uvicorn app.main:app --host 0.0.0.0"
+reload = "uvicorn app.main:app --host 0.0.0.0 --reload"
