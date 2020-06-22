@@ -26,6 +26,8 @@ services:
       - db_network
     volumes:
       - ./app:/app/app
+    # command: ${app_command:-"run reload"}
+    command: "run reload"
     # depends_on:
     #   - db_postgis
     # links:
