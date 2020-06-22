@@ -66,5 +66,8 @@ async def site_root():
 @app.get('/redirect_subpage')
 async def redirect_subpage():
     """redirect test"""
-    # status_codeは何故か効かないかもしれない
-    return RedirectResponse("/subpage", status_code=303)
+    # status_codeは何故か効かない
+    return RedirectResponse(
+        "/subpage",
+        # status_code=303,
+    )
