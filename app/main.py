@@ -7,6 +7,9 @@ import pathlib
 # from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import (
+    RedirectResponse,
+)
 
 # from .routers import test_api
 from .routers import (
@@ -58,3 +61,10 @@ app = create_app()
 async def site_root():
     """hello-world(TMP)"""
     return {"message": "Hello, WORLD!"}
+
+
+@app.get('/redirect_subpage')
+async def redirect_subpage():
+    """redirect test"""
+    # status_codeは何故か効かないかもしれない
+    return RedirectResponse("/subpage", status_code=303)
