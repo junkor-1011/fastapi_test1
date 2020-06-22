@@ -14,4 +14,20 @@
 {% block content %}
 <h2>Test Subpage</h2>
 
+<br>
+
+<h3>
+    test url_for
+    <br>
+    <h4>
+        <a href="{{ url_for('site_root') }}">site_root</a> (to subpage)
+    </h4>
+    <h5>
+        htmlファイルでのjinja2によるtemplatingにおいて、url_forを使ったアプリ間をまたいでのroutingは難しそう。<br>
+
+        (サブアプリの関数を呼び出すのは行けそう?)
+    </h5>
+
+</h3>
+
 {% endblock %}
