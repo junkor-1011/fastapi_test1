@@ -12,6 +12,7 @@ services:
     volumes:
       - ./docker/web/conf.d:/etc/nginx/conf.d
       - ./docker/web/ssl:/etc/nginx/ssl
+      - ./log/nginx:/var/log/nginx
     networks:
       - nginx_network
 
@@ -27,7 +28,7 @@ services:
     volumes:
       - ./app:/app/app
     # command: ${app_command:-"run reload"}
-    command: "run reload"
+    command: "run reload_proxy"
     # depends_on:
     #   - db_postgis
     # links:
