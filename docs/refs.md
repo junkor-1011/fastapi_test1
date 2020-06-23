@@ -6,6 +6,6 @@ References
 - https://shinyorke.hatenablog.com/entry/fastapi
 - https://rightcode.co.jp/blog/information-technology/fastapi-tutorial-todo-apps-environment
 - https://rightcode.co.jp/blog/information-technology/responder-fastapi-comparison
-
+- https://lonesec.com/2020/01/08/user-register-with-fastapi/
 
 

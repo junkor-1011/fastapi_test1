@@ -24,4 +24,6 @@ python_version = "3.8"
 
 [scripts]
 start = "uvicorn app.main:app --host 0.0.0.0"
+start_proxy = "uvicorn app.main:app --host 0.0.0.0 --proxy-headers --forwarded-allow-ips *"
 reload = "uvicorn app.main:app --host 0.0.0.0 --reload"
+reload_proxy = "uvicorn app.main:app --host 0.0.0.0 --reload --proxy-headers --forwarded-allow-ips *"
