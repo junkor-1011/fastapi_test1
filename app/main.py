@@ -14,6 +14,7 @@ from fastapi.responses import (
 # from .routers import test_api
 from .routers import (
     test_api,
+    test_crud,
     subpage,
 )
 # from .test_static import router as router_static   # TMP
@@ -33,16 +34,17 @@ def create_app():
         responses={404: {"description": "not found"}},
     )
     _app.include_router(
+        test_crud.router,
+        prefix="/test_crud",
+        tags=["test_crud"],
+        responses={404: {"description": "not found"}},
+    )
+    _app.include_router(
         subpage.router,
         prefix="/subpage",
         tags=["subpage"],
         responses={404: {"description": "not found"}},
     )
-    # _app.include_router(
-    #     router_static,
-    #     prefix="/test_static",
-    #     tags=["test_static"],
-    # )
 
     # static
     _app.mount(
