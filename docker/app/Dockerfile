@@ -59,7 +59,5 @@ EXPOSE 8000
 
 # Execute
 # ENTRYPOINT ["pipenv"]
-# CMD ["run", "start"]
-# CMD ["run", "reload"]
 CMD ["pipenv", "run", "start_proxy"]
 
