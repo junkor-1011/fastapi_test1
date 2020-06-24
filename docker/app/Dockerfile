@@ -33,8 +33,10 @@ RUN useradd -m -s /bin/bash -u ${USER_UID} ${USER_NAME} && \
 
 # https://medium.com/@rlagowski/create-flask-app-with-uwsgi-nginx-certbot-for-ssl-and-all-this-with-docker-a9f23516618d
 # 運用時はコンテナイメージ内にソースコードを含める
-#COPY ./app /app/app
-RUN mkdir /app
+# COPY ./app /app/app
+# RUN mkdir /app/db
+RUN mkdir /app && \
+    mkdir /app/db
 COPY ./Pipfile /app/Pipfile
 COPY ./Pipfile.lock /app/Pipfile.lock
 RUN chown -R ${USER_NAME}:${USER_NAME} /app
@@ -44,19 +46,18 @@ RUN chown -R ${USER_NAME}:${USER_NAME} /app
 USER ${USER_UID}
 # WORKDIR /tmp/app_env
 WORKDIR /app
-# pip
+# pip & pipenv
 ENV PATH $PATH:/home/${USER_NAME}/.local/bin
 RUN python3 -m pip install --user --upgrade pip && \
-    python3 -m pip install pipenv --user
-#pipenv
-RUN pipenv install
+    python3 -m pip install pipenv --user && \
+    pipenv install && \
+    rm -rf ~/.cache/pip && \
+    rm -rf ~/.cache/pipenv
 
 # Configration
 EXPOSE 8000
 
 # Execute
-ENTRYPOINT ["pipenv"]
-# CMD ["run", "start"]
-# CMD ["run", "reload"]
-CMD ["run", "start_proxy"]
+# ENTRYPOINT ["pipenv"]
+CMD ["pipenv", "run", "start_proxy"]
 

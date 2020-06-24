@@ -27,8 +27,9 @@ services:
       - db_network
     volumes:
       - ./app:/app/app
+      - ./db/app_sqlite.db:/app/db/app_sqlite.db
     # command: ${app_command:-"run reload"}
-    command: "run reload_proxy"
+    command: "pipenv run reload_proxy"
     # depends_on:
     #   - db_postgis
     # links:
