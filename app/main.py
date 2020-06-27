@@ -16,6 +16,7 @@ from .routers import (
     test_api,
     test_crud,
     test_websocket,
+    test_websocket2,
     subpage,
 )
 # from .test_static import router as router_static   # TMP
@@ -44,6 +45,12 @@ def create_app():
         test_websocket.router,
         prefix="/test_websocket",
         tags=["test_websocket"],
+        responses={404: {"description": "not found"}},
+    )
+    _app.include_router(
+        test_websocket2.router,
+        prefix="/test_websocket2",
+        tags=["test_websocket2"],
         responses={404: {"description": "not found"}},
     )
     _app.include_router(
