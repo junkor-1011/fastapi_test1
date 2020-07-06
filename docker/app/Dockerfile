@@ -33,10 +33,10 @@ RUN useradd -m -s /bin/bash -u ${USER_UID} ${USER_NAME} && \
 
 # https://medium.com/@rlagowski/create-flask-app-with-uwsgi-nginx-certbot-for-ssl-and-all-this-with-docker-a9f23516618d
 # 運用時はコンテナイメージ内にソースコードを含める
-# COPY ./app /app/app
-# RUN mkdir /app/db
-RUN mkdir /app && \
-    mkdir /app/db
+COPY ./app /app/app
+RUN mkdir /app/db
+# RUN mkdir /app && \
+#     mkdir /app/db
 COPY ./Pipfile /app/Pipfile
 COPY ./Pipfile.lock /app/Pipfile.lock
 RUN chown -R ${USER_NAME}:${USER_NAME} /app
