@@ -5,10 +5,11 @@ verify_ssl = true
 
 [dev-packages]
 pytest = "*"
-python-language-server = {extras = ["all"], version = "*"}
 tox = "*"
 ipdb = "*"
 pudb = "*"
+python-language-server = {extras = ["all"], version = "*"}
+ipython = "*"
 
 [packages]
 uvicorn = "*"
@@ -18,6 +19,7 @@ alembic = "*"
 databases = "*"
 jinja2 = "*"
 aiofiles = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.8"
