@@ -28,6 +28,7 @@ services:
     volumes:
       - ./app:/app/app
       - ./db/app_sqlite.db:/app/db/app_sqlite.db
+      - ./data:/app/data
     # command: ${app_command:-"run reload"}
     command: "pipenv run reload_proxy"
     # depends_on:
