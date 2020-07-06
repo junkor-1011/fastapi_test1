@@ -20,6 +20,7 @@ databases = "*"
 jinja2 = "*"
 aiofiles = "*"
 pytz = "*"
+python-multipart = "*"
 
 [requires]
 python_version = "3.8"
