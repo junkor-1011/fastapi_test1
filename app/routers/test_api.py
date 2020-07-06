@@ -2,6 +2,11 @@
 test api
 """
 
+from typing import (
+    Optional,
+    List,
+)
+
 # from fastapi import APIRouter, HTTPException, Query, Path
 from fastapi import (
     APIRouter,
@@ -58,3 +63,8 @@ async def create_file(file: bytes = File(...)):
 @router.post("/uploadfile/")
 async def create_upload_file(file: UploadFile = File(...)):
     return {"filename": file.filename}
+
+
+@router.post("/uploadfiles/")
+async def create_upload_files(files: List[UploadFile] = File(...)):
+    return {"filenames": [file.filename for file in files]}
